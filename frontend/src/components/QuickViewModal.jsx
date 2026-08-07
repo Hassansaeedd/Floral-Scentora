@@ -27,13 +27,13 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
 
   return (
     <div className={`modal-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '900px', padding: '35px', background: '#161618', border: '1px solid var(--accent-gold)' }}>
-        <button className="modal-close-btn" onClick={onClose} aria-label="Close modal" style={{ color: '#FFF' }}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '900px', padding: '35px' }}>
+        <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
           <i className="fa-solid fa-xmark"></i>
         </button>
 
         <div className="quickview-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '35px' }}>
-          <div className="qv-img-wrapper" style={{ borderRadius: '20px', overflow: 'hidden', background: '#1F1F24', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(212,175,55,0.2)' }}>
+          <div className="qv-img-wrapper" style={{ borderRadius: '20px', overflow: 'hidden', background: 'var(--pastel-peach)', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--glass-border)' }}>
             <img src={getImageUrl(product.image)} alt={product.name} style={{ maxHeight: '380px', objectFit: 'contain' }} />
           </div>
 
@@ -42,7 +42,7 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
               {product.category || 'Luxury'}
             </span>
 
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.2rem', color: 'var(--primary-charcoal)', margin: '6px 0 10px' }}>
+            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.2rem', color: 'var(--text-primary)', margin: '6px 0 10px' }}>
               {product.name}
             </h2>
 
@@ -57,7 +57,7 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>(5.0 rating)</span>
             </div>
 
-            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary-charcoal)', marginBottom: '20px' }}>
+            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--accent-gold)', marginBottom: '20px' }}>
               Rs. {parseFloat(product.price).toLocaleString()}
             </div>
 
@@ -91,7 +91,7 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
             <div style={{ display: 'flex', gap: '12px', marginBottom: '25px' }}>
               <button
                 className="btn btn-primary"
-                style={{ flex: 1, background: 'var(--primary-charcoal)', color: '#FFF', padding: '14px', borderRadius: '25px', fontWeight: 600 }}
+                style={{ flex: 1, background: 'var(--text-primary)', color: '#FFF', padding: '14px', borderRadius: '25px', fontWeight: 600, border: 'none', cursor: 'pointer' }}
                 onClick={() => {
                   onAddToCart({ ...product, quantity });
                   onClose();
@@ -112,9 +112,9 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
             {/* Information Tabs */}
             <div style={{ borderTop: '1px solid rgba(198,161,91,0.3)', paddingTop: '18px' }}>
               <div style={{ display: 'flex', gap: '20px', marginBottom: '14px', borderBottom: '1px solid rgba(198,161,91,0.2)' }}>
-                <button onClick={() => setActiveTab('notes')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'notes' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer' }}>Fragrance Notes</button>
-                <button onClick={() => setActiveTab('desc')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'desc' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer' }}>Description</button>
-                <button onClick={() => setActiveTab('reviews')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'reviews' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer' }}>Reviews</button>
+                <button onClick={() => setActiveTab('notes')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'notes' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer', color: 'var(--text-primary)' }}>Fragrance Notes</button>
+                <button onClick={() => setActiveTab('desc')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'desc' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer', color: 'var(--text-primary)' }}>Description</button>
+                <button onClick={() => setActiveTab('reviews')} style={{ border: 'none', background: 'none', paddingBottom: '8px', borderBottom: activeTab === 'reviews' ? '2px solid var(--accent-gold)' : 'none', fontWeight: 600, cursor: 'pointer', color: 'var(--text-primary)' }}>Reviews</button>
               </div>
 
               {activeTab === 'notes' && (
