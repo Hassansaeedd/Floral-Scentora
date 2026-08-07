@@ -3,7 +3,7 @@ import React from 'react';
 const FALLBACK_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none"><rect width="200" height="280" fill="#0d0d0e"/><rect x="65" y="100" width="70" height="130" rx="14" fill="url(#bg)" opacity="0.85"/><rect x="82" y="72" width="36" height="32" rx="6" fill="url(#bg)" opacity="0.75"/><rect x="78" y="56" width="44" height="20" rx="8" fill="#e5c158" opacity="0.9"/><rect x="74" y="138" width="52" height="58" rx="6" fill="white" opacity="0.6"/><circle cx="100" cy="167" r="3" fill="#e5c158" opacity="0.7"/><circle cx="88" cy="175" r="2" fill="#e5c158" opacity="0.5"/><circle cx="112" cy="175" r="2" fill="#e5c158" opacity="0.5"/><defs><linearGradient id="bg" x1="65" y1="100" x2="135" y2="230" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#e8b4b8"/><stop offset="100%" stop-color="#e5c158"/></linearGradient></defs></svg>`)}`;
 
 const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }) => {
-  const WHATSAPP_PHONE = '923001234567';
+  const WHATSAPP_PHONE = '923154327855';
 
   const cartTotal = cartItems.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0);
 

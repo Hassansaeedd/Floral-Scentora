@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const ContactPage = () => {
-  const CONTACT_EMAIL = 'info@alqadsiyakhushbuu.com';
-  const WHATSAPP_PHONE = '923001234567';
+  const CONTACT_EMAIL = 'hschatthi@gmail.com';
+  const WHATSAPP_PHONE = '923154327855';
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -53,7 +53,7 @@ ${message}`);
               </div>
               <div className="channel-details">
                 <span className="channel-name">WhatsApp Direct</span>
-                <span className="channel-val">+92 300 1234567</span>
+                <span className="channel-val">+92 315 4327855</span>
               </div>
               <span className="channel-action">Chat Now</span>
             </a>

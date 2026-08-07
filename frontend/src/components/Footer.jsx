@@ -40,10 +40,10 @@ const Footer = () => {
           <h4>Inquiries</h4>
           <div className="footer-contact-info">
             <div>
-              <i className="fa-solid fa-phone"></i> +92 300 1234567
+              <i className="fa-solid fa-phone"></i> +92 315 4327855
             </div>
             <div>
-              <i className="fa-regular fa-envelope"></i> hello@scentora.com
+              <i className="fa-regular fa-envelope"></i> hschatthi@gmail.com
             </div>
             <div>
               <i className="fa-regular fa-compass"></i> Botanical Boulevard, Pakistan

@@ -3,27 +3,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap');
 
 :root {
-  /* Originkit Luxury Dark Tokens */
-  --color-bg: #090A0F;             /* Midnight Obsidian */
-  --primary-charcoal: #12141D;     /* Deep Sapphire Obsidian */
-  --accent-gold: #E5C158;          /* Luminous Champagne Gold */
-  --accent-gold-glow: rgba(229, 193, 88, 0.35);
-  --secondary-rose: #E8B4B8;       /* Soft Botanical Rose */
-  --text-primary: #F9F9FB;         /* Luminous Off-White */
-  --text-main: #F9F9FB;
-  --text-dark: #F9F9FB;
-  --text-secondary: #A5A8B6;       /* Platinum Slate Subtext */
-  --text-muted: #A5A8B6;
+  /* Floral Scentora - Luxury Botanical Light Pastel Tokens */
+  --color-bg: #F8F4EE;             /* Warm Ivory / Cream */
+  --primary-charcoal: #1C1C1C;     /* Deep Charcoal */
+  --accent-gold: #C6A15B;          /* Champagne Gold */
+  --accent-gold-glow: rgba(198, 161, 91, 0.25);
+  --secondary-rose: #D8B8B0;       /* Soft Blush Rose */
+  --text-primary: #332B27;         /* Deep Warm Brown */
+  --text-main: #332B27;
+  --text-dark: #1C1C1C;
+  --text-secondary: #6B5B52;       /* Warm Muted Brown */
+  --text-muted: #7A6B63;
   
-  --color-card-bg: rgba(18, 20, 29, 0.85);
-  --glass-bg: rgba(18, 20, 29, 0.88);
-  --glass-border: rgba(229, 193, 88, 0.22);
-  --glass-border-hover: rgba(229, 193, 88, 0.55);
+  --color-card-bg: #FFFFFF;        /* Pristine Pure White Card */
+  --glass-bg: rgba(248, 244, 238, 0.92);
+  --glass-border: rgba(198, 161, 91, 0.25);
+  --glass-border-hover: rgba(198, 161, 91, 0.65);
   
-  --pastel-pink: rgba(232, 180, 184, 0.15);
-  --pastel-lavender: rgba(229, 193, 88, 0.15);
-  --pastel-peach: rgba(229, 193, 88, 0.1);
-  --pastel-mint: rgba(160, 210, 180, 0.15);
+  --pastel-pink: #FDEEF0;
+  --pastel-lavender: #F3EFEF;
+  --pastel-peach: #FAF0E6;
+  --pastel-mint: #EBF5F0;
   
   /* System Spacing & Easing */
   --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -31,8 +31,8 @@
   --border-radius-sm: 10px;
   --border-radius-md: 18px;
   --border-radius-lg: 28px;
-  --box-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
-  --box-shadow-medium: 0 20px 50px rgba(0, 0, 0, 0.8);
+  --box-shadow-soft: 0 10px 30px rgba(51, 43, 39, 0.08);
+  --box-shadow-medium: 0 20px 50px rgba(51, 43, 39, 0.12);
   --backdrop-blur: blur(16px);
 }
 
@@ -1832,4 +1832,182 @@ select.admin-form-input option {
   background: rgba(255, 82, 82, 0.12) !important;
   border: 1px solid rgba(255, 82, 82, 0.35) !important;
   color: #FF5252 !important;
+}
+
+/* =================== CONTACT US PAGE LAYOUT =================== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    padding: 0 20px 60px;
+  }
+}
+
+.contact-info-panel {
+  background: var(--color-card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: var(--box-shadow-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-header h2 {
+  font-size: 2.4rem;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.contact-header p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.channel-card {
+  background: var(--color-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.channel-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px rgba(198, 161, 91, 0.15);
+}
+
+.channel-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(198, 161, 91, 0.12);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.channel-name {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.channel-val {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.channel-action {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-gold);
+  background: rgba(198, 161, 91, 0.08);
+}
+
+/* Contact Form Panel */
+.contact-form-panel {
+  background: var(--color-card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: var(--box-shadow-soft);
+}
+
+.form-title {
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--border-radius-sm);
+  border: 1.5px solid var(--glass-border);
+  background: var(--color-bg);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.12);
+}
+
+textarea.form-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: var(--transition-fast);
+  background: transparent;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  top: -10px;
+  left: 12px;
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+  background: var(--color-card-bg);
+  padding: 0 6px;
 }

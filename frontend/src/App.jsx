@@ -18,9 +18,10 @@ import ContactPage from './components/ContactPage';
 import AdminPanel from './components/AdminPanel';
 import CartDrawer from './components/CartDrawer';
 import QuickViewModal from './components/QuickViewModal';
+import initialProducts from './data/products.json';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(initialProducts || []);
   const [cartItems, setCartItems] = useState(() => {
     const saved = localStorage.getItem('scentora_cart');
     return saved ? JSON.parse(saved) : [];
@@ -36,16 +37,18 @@ function App() {
     localStorage.setItem('scentora_cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // Fetch products from Laravel SQLite backend
+  // Fetch products from backend API if available
   const fetchProducts = async () => {
     try {
       const response = await fetch('/api/products');
       if (response.ok) {
         const data = await response.json();
-        setProducts(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setProducts(data);
+        }
       }
     } catch (error) {
-      console.error('Failed to fetch products from backend:', error);
+      console.log('Using pre-seeded 939 catalog items fallback.');
     }
   };
 

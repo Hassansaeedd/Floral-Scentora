@@ -10,12 +10,12 @@ const ParticlesBg = () => {
     let animationFrameId;
     let time = 0;
 
-    // Particles.casberry Luxury Color Palette
+    // Particles.casberry Luxury Light Pastel Color Palette
     const colors = [
-      'rgba(229, 193, 88, 0.45)',   // Champagne Gold
-      'rgba(232, 180, 184, 0.35)',  // Soft Botanical Rose
-      'rgba(244, 214, 155, 0.40)',  // Luminous Gold
-      'rgba(200, 180, 220, 0.25)',  // Subtle Lavender Sparkle
+      'rgba(198, 161, 91, 0.55)',   // Champagne Gold
+      'rgba(216, 184, 176, 0.50)',  // Soft Botanical Rose
+      'rgba(225, 190, 150, 0.45)',  // Warm Amber Glow
+      'rgba(190, 170, 210, 0.35)',  // Subtle Lavender Dust
     ];
 
     const mouse = { x: null, y: null, radius: 200, active: false };
