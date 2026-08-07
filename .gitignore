@@ -1,0 +1,45 @@
+# ─── Dependencies ───────────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+backend/vendor/
+
+# ─── Build output ────────────────────────────────────────────────────────────
+dist/
+frontend/dist/
+
+# ─── Environment / Secrets (NEVER commit these) ──────────────────────────────
+.env
+.env.local
+.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ─── Database ────────────────────────────────────────────────────────────────
+backend/database/database.sqlite
+*.sqlite
+*.sqlite3
+
+# ─── Laravel ─────────────────────────────────────────────────────────────────
+backend/storage/framework/
+backend/storage/logs/
+backend/bootstrap/cache/
+backend/public/hot
+backend/public/storage
+
+# ─── Vercel ──────────────────────────────────────────────────────────────────
+.vercel/
+
+# ─── OS & Editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ─── Vite cache ──────────────────────────────────────────────────────────────
+frontend/.vite/

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Qadsiya Khushbuu Mahal | Premium Pastel Perfumes</title>
+  
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Discover premium, luxury fragrances at Al-Qadsiya Khushbuu Mahal. Explore our beautiful pastel-themed collection of floral, oud, fresh, and citrus scents.">
+  <meta name="keywords" content="Al-Qadsiya, Khushbuu Mahal, perfume shop, luxury scents, floral perfumes, oud, custom perfume catalog, online fragrance boutique">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Animated Cursor Elements -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+  <!-- Interactive Particle Background Canvas (Casberry Inspired) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- Glassmorphic Header -->
+    <header id="main-header">
+      <a href="#home" class="logo clickable" data-target="home">
+        <span class="logo-main">Al-Qadsiya</span>
+        <span class="logo-sub">Khushbuu Mahal</span>
+      </a>
+      
+      <!-- Hamburger Menu for Mobile -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="navbar">
+        <a href="#home" class="active-link clickable" data-target="home">Home</a>
+        <a href="#catalog" class="clickable" data-target="catalog">Catalog</a>
+        <a href="#bespoke" class="clickable" data-target="bespoke">Bespoke</a>
+        <a href="#contact" class="clickable" data-target="contact">Contact Us</a>
+        <a href="#admin" class="clickable" data-target="admin" id="nav-admin-link">Dashboard</a>
+      </nav>
+
+      <div class="nav-icons">
+        <button class="nav-icon-btn clickable" id="cart-trigger-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN VIEWS PANEL -->
+    <main>
+
+      <!-- ================= HOME SECTION ================= -->
+      <section id="view-home" class="view-section active">
+        <div class="hero">
+          <div class="hero-content">
+            <span class="hero-subtitle">Premium Fragrances</span>
+            <h1 class="hero-title">A Symphony of <span>Exquisite Scents</span></h1>
+            <p class="hero-description">Welcome to Al-Qadsiya Khushbuu Mahal. We curate luxury perfumes that harmonize premium oriental oud oils, delicate pastel floral notes, and invigorating citrus mists to define your signature aura.</p>
+            <div class="btn-group">
+              <a href="#catalog" class="btn btn-primary clickable" data-target="catalog">Explore Scents <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#contact" class="btn btn-secondary clickable" data-target="contact">Contact Us</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-circle-bg"></div>
+            <div class="hero-img-card">
+              <img src="assets/images/rose_whisper.jpg" alt="Rose Whisper Perfume Bottle">
+            </div>
+            <div class="floating-badge">
+              <span class="badge-title">Oud Al-Subh</span>
+              <span class="badge-sub">Featured Arabic Scents</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scent Profile Categories -->
+        <div class="section-header">
+          <span class="section-subtitle">Categorized Aura</span>
+          <h2 class="section-title">Discover Scent Families</h2>
+        </div>
+
+        <div class="categories-grid">
+          <div class="category-card interactive-card clickable" data-category="Floral">
+            <div class="category-icon cat-floral">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3>Floral Harmony</h3>
+            <p>Romantic, delicate bouquets of Bulgarian rose, fresh peony, and jasmine blossoms.</p>
+          </div>
+          <div class="category-card interactive-card clickable" data-category="Oriental">
+            <div class="category-icon cat-oriental">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <h3>Oriental Oud</h3>
+            <p>Majestic, exotic blends of rich agarwood, warm saffron, and vanilla undertones.</p>
+          </div>
+          <div class="category-card interactive-card clickable" data-category="Fresh">
+            <div class="category-icon cat-fresh">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <h3>Fresh Mist</h3>
+            <p>Serene, calming waves of wild French lavender, chamomile, and light cedarwood.</p>
+          </div>
+          <div class="category-card interactive-card clickable" data-category="Citrus">
+            <div class="category-icon cat-citrus">
+              <i class="fa-solid fa-lemon"></i>
+            </div>
+            <h3>Citrus Zest</h3>
+            <p>Crisp, energetic bursts of Sicilian lemons, bergamot, and fresh crushed mint.</p>
+          </div>
+        </div>
+
+        <!-- Featured Carousel (OriginKit Carousel inspired) -->
+        <div class="featured-perfumes">
+          <div class="section-header">
+            <span class="section-subtitle">Exquisite Curations</span>
+            <h2 class="section-title">Client Favorites</h2>
+          </div>
+          
+          <div class="slider-container">
+            <button class="slider-btn slider-btn-prev clickable" id="featured-prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-btn slider-btn-next clickable" id="featured-next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="slider-track" id="featured-slider-track">
+              <!-- Rendered dynamically by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Story Parallax Section -->
+        <div class="story-section">
+          <div class="story-img">
+            <img src="assets/images/oud_subh.jpg" alt="Premium Oud Scent Oils">
+          </div>
+          <div class="story-content">
+            <h2 class="story-title">Crafting Liquid Memories</h2>
+            <p class="story-text">At Al-Qadsiya Khushbuu Mahal, we believe a fragrance is more than a scent—it is a lingering memory, a whisper of luxury that stays long after you leave the room. Our blends are sourced from natural essences and bottled into custom minimalist glassware to encapsulate pure sophistication.</p>
+            <div class="benefits-bar">
+              <div class="benefit-item">
+                <i class="fa-solid fa-award benefit-icon"></i>
+                <div>
+                  <h4 class="benefit-title">Pure Extracts</h4>
+                  <p class="benefit-desc">100% pure organic oils</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-hourglass benefit-icon"></i>
+                <div>
+                  <h4 class="benefit-title">Eternal Longevity</h4>
+                  <p class="benefit-desc">Formulations lasting 8h+</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-leaf benefit-icon"></i>
+                <div>
+                  <h4 class="benefit-title">Cruelty Free</h4>
+                  <p class="benefit-desc">Sustainable sourcing focus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CATALOG / SHOP SECTION ================= -->
+      <section id="view-catalog" class="view-section">
+        <div class="section-header">
+          <span class="section-subtitle">Scent Collection</span>
+          <h2 class="section-title">The Complete Catalog</h2>
+        </div>
+
+        <div class="catalog-layout">
+          
+          <!-- Filters Panel -->
+          <aside class="filters-panel">
+            <div class="filter-group">
+              <h4 class="filter-title">Search Scents</h4>
+              <div class="search-wrapper">
+                <input type="text" id="search-bar" class="search-input" placeholder="Search by name, note...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-title">Categories</h4>
+              <ul class="filter-list" id="category-filter-list">
+                <li><button class="filter-btn active-filter clickable" data-cat="all">All Fragrances <span></span></button></li>
+                <li><button class="filter-btn clickable" data-cat="Floral">Floral <span></span></button></li>
+                <li><button class="filter-btn clickable" data-cat="Oriental">Oriental <span></span></button></li>
+                <li><button class="filter-btn clickable" data-cat="Fresh">Fresh <span></span></button></li>
+                <li><button class="filter-btn clickable" data-cat="Fruity">Fruity <span></span></button></li>
+                <li><button class="filter-btn clickable" data-cat="Citrus">Citrus <span></span></button></li>
+              </ul>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-title">Stock Status</h4>
+              <ul class="filter-list" id="stock-filter-list">
+                <li><button class="filter-btn active-filter clickable" data-stock="all">All Items</button></li>
+                <li><button class="filter-btn clickable" data-stock="In Stock">In Stock</button></li>
+                <li><button class="filter-btn clickable" data-stock="Low Stock">Low Stock</button></li>
+                <li><button class="filter-btn clickable" data-stock="Out of Stock">Out of Stock</button></li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Product Grid Area -->
+          <div class="catalog-grid-area">
+            <div class="catalog-header">
+              <span class="products-count" id="products-count-label">Showing 0 products</span>
+              <div class="sort-wrapper">
+                <select id="sort-select" class="sort-select clickable">
+                  <option value="default">Default Sorting</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="name-asc">Alphabetical: A-Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="products-grid" id="products-grid-container">
+              <!-- Rendered dynamically by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= BESPOKE CUSTOM SCENT BUILDER ================= -->
+      <section id="view-bespoke" class="view-section">
+        <div class="section-header">
+          <span class="section-subtitle">Custom Formulations</span>
+          <h2 class="section-title">Design Your Signature Scent</h2>
+        </div>
+
+        <div class="contact-layout" style="grid-template-columns: 1fr 1.2fr; gap: 40px; margin-top: 40px;">
+          
+          <!-- Left Panel: SVG Visualizer & Customizer Controls -->
+          <div class="contact-form-panel" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; padding: 40px 30px;">
+            
+            <!-- SVG Perfume Bottle Visualizer -->
+            <div id="bespoke-bottle-visualizer" style="width: 100%; max-width: 320px; height: 350px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <!-- Dynamic SVG -->
+              <svg id="custom-bottle-svg" viewBox="0 0 200 260" width="100%" height="100%">
+                <defs>
+                  <!-- Soft pastel fluid gradients -->
+                  <linearGradient id="fluid-pink-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FFCDD2" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#F8BBD0" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="fluid-peach-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FFE0B2" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#FFCC80" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="fluid-mint-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#E8F5E9" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#C8E6C9" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="fluid-lavender-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#E1BEE7" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#D1C4E9" stop-opacity="0.9"/>
+                  </linearGradient>
+                  
+                  <filter id="glass-glow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3C2A3D" flood-opacity="0.05"/>
+                  </filter>
+                </defs>
+
+                <!-- Bottle Cap (Common) -->
+                <rect id="svg-bottle-cap" x="85" y="10" width="30" height="25" rx="3" fill="#D4B26F" />
+                <rect x="80" y="32" width="40" height="8" rx="2" fill="#C5A05E" />
+                
+                <!-- Bottle Neck (Common) -->
+                <rect x="92" y="38" width="16" height="22" fill="#E0E0E0" opacity="0.5"/>
+                <!-- Straw inside bottle -->
+                <line x1="100" y1="40" x2="100" y2="210" stroke="#7E6C80" stroke-width="2" stroke-dasharray="2 3" opacity="0.7"/>
+
+                <!-- Dynamic Bottle Shape Paths -->
+                <!-- Shape 1: Cube (Default) -->
+                <path id="shape-cube-glass" d="M 50 60 L 150 60 Q 160 60 160 70 L 160 210 Q 160 220 150 220 L 50 220 Q 40 220 40 210 L 40 70 Q 40 60 50 60 Z" fill="none" stroke="#3C2A3D" stroke-width="4.5" stroke-linejoin="round" filter="url(#glass-glow)"/>
+                <path id="shape-cube-fluid" d="M 46 95 L 154 95 L 154 210 Q 154 214 150 214 L 50 214 Q 46 214 46 210 Z" fill="url(#fluid-pink-grad)"/>
+
+                <!-- Shape 2: Cylinder (Hidden by default) -->
+                <path id="shape-cylinder-glass" d="M 60 60 L 140 60 Q 145 60 148 65 L 154 90 Q 155 95 155 100 L 155 200 Q 155 215 140 215 L 60 215 Q 45 215 45 200 L 45 100 Q 45 95 46 90 L 52 65 Q 55 60 60 60 Z" fill="none" stroke="#3C2A3D" stroke-width="4.5" stroke-linejoin="round" filter="url(#glass-glow)" style="display:none;"/>
+                <path id="shape-cylinder-fluid" d="M 50 110 L 150 110 L 150 200 Q 150 209 140 209 L 60 209 Q 50 209 50 200 Z" fill="url(#fluid-pink-grad)" style="display:none;"/>
+
+                <!-- Shape 3: Flask (Hidden by default) -->
+                <path id="shape-flask-glass" d="M 80 60 L 120 60 Q 124 60 126 63 L 163 200 Q 167 215 150 215 L 50 215 Q 33 215 37 200 L 74 63 Q 76 60 80 60 Z" fill="none" stroke="#3C2A3D" stroke-width="4.5" stroke-linejoin="round" filter="url(#glass-glow)" style="display:none;"/>
+                <path id="shape-flask-fluid" d="M 89 105 L 111 105 L 153 205 Q 157 209 150 209 L 50 209 Q 43 209 47 205 Z" fill="url(#fluid-pink-grad)" style="display:none;"/>
+
+                <!-- Label Frame & Text -->
+                <g id="svg-label-group">
+                  <rect x="50" y="130" width="100" height="40" rx="4" fill="rgba(255,255,255,0.85)" stroke="#D4B26F" stroke-width="1.5"/>
+                  <text id="svg-bottle-label" x="100" y="150" font-family="'Cormorant Garamond', serif" font-size="9" font-weight="bold" fill="#3C2A3D" text-anchor="middle">SIGNATURE AURA</text>
+                  <text x="100" y="162" font-family="'Outfit', sans-serif" font-size="5" fill="#7E6C80" text-anchor="middle" letter-spacing="1">AL-QADSIYA</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Bottle Customizer Selectors -->
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+              
+              <!-- Shape Selector -->
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);">Bottle Cut</span>
+                <div style="display: flex; gap: 10px;">
+                  <button type="button" class="btn btn-secondary clickable active-shape-btn" id="shape-btn-cube" style="padding: 8px 16px; font-size: 0.75rem; border-radius: 8px;" data-shape="cube">Cube</button>
+                  <button type="button" class="btn btn-secondary clickable" id="shape-btn-cylinder" style="padding: 8px 16px; font-size: 0.75rem; border-radius: 8px;" data-shape="cylinder">Cylinder</button>
+                  <button type="button" class="btn btn-secondary clickable" id="shape-btn-flask" style="padding: 8px 16px; font-size: 0.75rem; border-radius: 8px;" data-shape="flask">Flask</button>
+                </div>
+              </div>
+
+              <!-- Color Selector -->
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);">Fluid Tint</span>
+                <div style="display: flex; gap: 15px;">
+                  <button type="button" class="clickable color-dot active-color" data-color="pink" style="width:24px; height:24px; border-radius:50%; background-color:#FFCDD2; border:2px solid #fff; box-shadow:0 0 5px rgba(0,0,0,0.15)"></button>
+                  <button type="button" class="clickable color-dot" data-color="peach" style="width:24px; height:24px; border-radius:50%; background-color:#FFE0B2; border:2px solid #fff; box-shadow:0 0 5px rgba(0,0,0,0.15)"></button>
+                  <button type="button" class="clickable color-dot" data-color="mint" style="width:24px; height:24px; border-radius:50%; background-color:#C8E6C9; border:2px solid #fff; box-shadow:0 0 5px rgba(0,0,0,0.15)"></button>
+                  <button type="button" class="clickable color-dot" data-color="lavender" style="width:24px; height:24px; border-radius:50%; background-color:#E1BEE7; border:2px solid #fff; box-shadow:0 0 5px rgba(0,0,0,0.15)"></button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Panel: Scent Notes Selection & Form -->
+          <div class="contact-form-panel">
+            <h3 class="form-title">Formulate Your Scent</h3>
+            
+            <form id="bespoke-form" autocomplete="off">
+              <div class="form-group" style="margin-bottom: 30px;">
+                <input type="text" id="bespoke-label-input" class="form-input" placeholder=" " value="Signature Aura" required maxlength="16">
+                <label for="bespoke-label-input" class="form-label">Perfume Custom Name (Max 16 chars)</label>
+              </div>
+
+              <!-- Top Notes -->
+              <div style="margin-bottom: 25px;">
+                <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px;">Top Notes (Choose up to 2)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" id="bespoke-top-grid">
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="top-note" value="Bergamot"> Bergamot</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="top-note" value="Amalfi Lemon"> Amalfi Lemon</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="top-note" value="French Lavender"> French Lavender</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="top-note" value="Garden Mint"> Garden Mint</label>
+                </div>
+              </div>
+
+              <!-- Heart Notes -->
+              <div style="margin-bottom: 25px;">
+                <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px;">Heart Notes (Choose up to 2)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" id="bespoke-heart-grid">
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="heart-note" value="Damask Rose"> Damask Rose</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="heart-note" value="Jasmine Sambac"> Jasmine Sambac</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="heart-note" value="White Cedarwood"> White Cedarwood</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="heart-note" value="Warm Cinnamon"> Warm Cinnamon</label>
+                </div>
+              </div>
+
+              <!-- Base Notes -->
+              <div style="margin-bottom: 30px;">
+                <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 10px;">Base Notes (Choose up to 2)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" id="bespoke-base-grid">
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="base-note" value="Agarwood (Oud)"> Agarwood (Oud)</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="base-note" value="Creamy Sandalwood"> Creamy Sandalwood</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="base-note" value="Golden Amber"> Golden Amber</label>
+                  <label class="clickable note-checkbox-label"><input type="checkbox" name="base-note" value="White Musk"> White Musk</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary clickable" id="bespoke-submit-btn" style="width: 100%; background: linear-gradient(135deg, var(--text-main), var(--accent-gold)); color: white; border: none; padding: 16px 20px;">
+                <i class="fa-brands fa-whatsapp"></i> Send Custom Formulation via WhatsApp
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= CONTACT US SECTION ================= -->
+      <section id="view-contact" class="view-section">
+        <div class="contact-layout">
+          
+          <div class="contact-info-panel">
+            <div class="contact-header">
+              <h2>Connect With Us</h2>
+              <p>Have inquiries about custom blends or corporate gifting? Get in touch directly via WhatsApp for instant ordering support, or send us an email query using the form.</p>
+            </div>
+            
+            <div class="contact-channels">
+              <a href="https://wa.me/923001234567" target="_blank" class="channel-card whatsapp-channel clickable" id="contact-whatsapp-card">
+                <div class="channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="channel-details">
+                  <div class="channel-name">Order on WhatsApp</div>
+                  <div class="channel-val">+92 300 1234567</div>
+                </div>
+                <div class="channel-action">Chat Now <i class="fa-solid fa-chevron-right"></i></div>
+              </a>
+              
+              <a href="mailto:info@alqadsiyakhushbuu.com" class="channel-card email-channel clickable">
+                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-details">
+                  <div class="channel-name">Send Email</div>
+                  <div class="channel-val">info@alqadsiyakhushbuu.com</div>
+                </div>
+                <div class="channel-action">Mail Us <i class="fa-solid fa-chevron-right"></i></div>
+              </a>
+              
+              <div class="channel-card hours-channel">
+                <div class="channel-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="channel-details">
+                  <div class="channel-name">Boutique Hours</div>
+                  <div class="channel-val">Mon - Sat: 11:00 AM - 9:00 PM</div>
+                </div>
+                <div class="channel-action" style="color:var(--text-muted)">GMT+5</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-panel">
+            <h3 class="form-title">Send a Query</h3>
+            <form id="contact-form" autocomplete="off">
+              <div class="form-group">
+                <input type="text" id="contact-name" class="form-input" placeholder=" " required>
+                <label for="contact-name" class="form-label">Your Name</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="contact-email" class="form-input" placeholder=" " required>
+                <label for="contact-email" class="form-label">Email Address</label>
+              </div>
+
+              <div class="form-group">
+                <input type="text" id="contact-scent" class="form-input" placeholder=" ">
+                <label for="contact-scent" class="form-label">Preferred Scent Profile (e.g. Woody, Floral)</label>
+              </div>
+              
+              <div class="form-group">
+                <textarea id="contact-message" class="form-input" placeholder=" " required></textarea>
+                <label for="contact-message" class="form-label">Describe your query...</label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary clickable" style="width: 100%">Submit Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ADMIN MANAGEMENT SECTION ================= -->
+      <section id="view-admin" class="view-section">
+        
+        <!-- Passcode Gate -->
+        <div id="admin-gate" class="admin-lock-screen">
+          <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+          <h3>Admin Panel Access</h3>
+          <p>Please enter the boutique admin passcode to manage stocks, prices, and products.</p>
+          <form id="admin-login-form" style="width: 100%">
+            <div class="form-group">
+              <input type="password" id="admin-passcode" class="form-input" placeholder=" " required>
+              <label for="admin-passcode" class="form-label">Admin Passcode</label>
+            </div>
+            <div id="admin-error-msg" style="color: #D81B60; font-size: 0.85rem; margin-top: -15px; margin-bottom: 15px; display: none;">Invalid passcode, try again.</div>
+            <button type="submit" class="btn btn-primary clickable" style="width: 100%">Login to Inventory</button>
+          </form>
+        </div>
+
+        <!-- Dashboard Panel (Shown after Auth) -->
+        <div id="admin-dashboard" style="display: none;">
+          <div class="admin-header-row">
+            <div class="admin-title-area">
+              <h2>Inventory Dashboard</h2>
+              <p>View stocks, adjust pricing, and add new fragrances.</p>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-secondary clickable" id="admin-logout-btn"><i class="fa-solid fa-sign-out"></i> Logout</button>
+              <button class="btn btn-primary clickable" id="add-product-trigger-btn"><i class="fa-solid fa-plus"></i> Add Perfume</button>
+            </div>
+          </div>
+
+          <!-- Summary widgets -->
+          <div class="admin-stats-grid">
+            <div class="stat-widget">
+              <div class="stat-icon" style="background-color: var(--pastel-blue); color: #0288D1;"><i class="fa-solid fa-bottle-droplet"></i></div>
+              <div>
+                <div class="stat-val" id="stat-total-items">0</div>
+                <div class="stat-label">Total Perfumes</div>
+              </div>
+            </div>
+            <div class="stat-widget">
+              <div class="stat-icon" style="background-color: var(--pastel-peach); color: #E65100;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div>
+                <div class="stat-val" id="stat-low-stock">0</div>
+                <div class="stat-label">Low Stock (≤5)</div>
+              </div>
+            </div>
+            <div class="stat-widget">
+              <div class="stat-icon" style="background-color: var(--pastel-pink); color: #D81B60;"><i class="fa-solid fa-ban"></i></div>
+              <div>
+                <div class="stat-val" id="stat-out-stock">0</div>
+                <div class="stat-label">Out of Stock</div>
+              </div>
+            </div>
+            <div class="stat-widget">
+              <div class="stat-icon" style="background-color: var(--pastel-mint); color: #2E7D32;"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+              <div>
+                <div class="stat-val" id="stat-total-val">$0</div>
+                <div class="stat-label">Stock Value</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inventory List -->
+          <div class="inventory-panel">
+            <div class="table-responsive">
+              <table class="inventory-table">
+                <thead>
+                  <tr>
+                    <th>Perfume Detail</th>
+                    <th>Category</th>
+                    <th>Price ($)</th>
+                    <th>Quantity</th>
+                    <th>Stock Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                  <!-- Rendered dynamically by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ================= SHOPPING CART DRAWER ================= -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+      <div class="cart-drawer">
+        <div class="cart-drawer-header">
+          <h3>Shopping Bag</h3>
+          <button class="close-drawer-btn clickable" id="cart-close-btn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="cart-items-list" id="cart-items-container">
+          <!-- Rendered dynamically by JS -->
+        </div>
+
+        <div class="cart-drawer-footer">
+          <div class="cart-summary-row">
+            <span class="cart-total-label">Subtotal</span>
+            <span class="cart-total-val" id="cart-total-value">$0.00</span>
+          </div>
+          <button class="btn btn-whatsapp-checkout clickable" id="whatsapp-checkout-btn" style="width: 100%;">
+            <i class="fa-brands fa-whatsapp"></i> Checkout on WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PRODUCT QUICK VIEW MODAL ================= -->
+    <div class="modal-overlay" id="quickview-modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close-btn clickable" id="quickview-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+        <div class="quickview-layout" id="quickview-modal-body">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ADMIN ADD/EDIT PERFUME MODAL ================= -->
+    <div class="modal-overlay" id="perfume-modal-overlay">
+      <div class="modal-content" style="max-width: 650px;">
+        <button class="modal-close-btn clickable" id="perfume-modal-close" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+        <h3 id="perfume-modal-title" style="font-size: 2.2rem; margin-bottom: 25px;">Add New Perfume</h3>
+        
+        <form id="perfume-crud-form">
+          <input type="hidden" id="crud-product-id">
+          
+          <div class="perfume-form-grid">
+            <div class="admin-form-group">
+              <label for="crud-name">Perfume Name</label>
+              <input type="text" id="crud-name" class="admin-form-input" placeholder="e.g. Saffron Rose" required>
+            </div>
+            
+            <div class="admin-form-group">
+              <label for="crud-category">Category</label>
+              <select id="crud-category" class="admin-form-input clickable" required>
+                <option value="Floral">Floral</option>
+                <option value="Oriental">Oriental</option>
+                <option value="Fresh">Fresh</option>
+                <option value="Fruity">Fruity</option>
+                <option value="Citrus">Citrus</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-price">Price ($)</label>
+              <input type="number" id="crud-price" step="0.01" min="0" class="admin-form-input" placeholder="e.g. 75.00" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-quantity">Stock Quantity</label>
+              <input type="number" id="crud-quantity" min="0" class="admin-form-input" placeholder="e.g. 15" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-longevity">Longevity</label>
+              <input type="text" id="crud-longevity" class="admin-form-input" placeholder="e.g. Long Lasting (6-8 hours)">
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-sillage">Sillage</label>
+              <input type="text" id="crud-sillage" class="admin-form-input" placeholder="e.g. Moderate">
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-notes-top">Top Notes</label>
+              <input type="text" id="crud-notes-top" class="admin-form-input" placeholder="e.g. Lemon, Cardamom">
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-notes-middle">Middle Notes</label>
+              <input type="text" id="crud-notes-middle" class="admin-form-input" placeholder="e.g. Jasmine, Cedar">
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-notes-base">Base Notes</label>
+              <input type="text" id="crud-notes-base" class="admin-form-input" placeholder="e.g. Patchouli, Vanilla">
+            </div>
+
+            <div class="admin-form-group">
+              <label for="crud-image">Image Template / Path</label>
+              <select id="crud-image" class="admin-form-input clickable">
+                <option value="assets/images/rose_whisper.jpg">Rose Whisper (Pink)</option>
+                <option value="assets/images/oud_subh.jpg">Oud Al-Subh (Gold/Peach)</option>
+                <option value="assets/images/lavender_mist.jpg">Lavender Mist (Violet)</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group form-span-2">
+              <label for="crud-description">Scent Description</label>
+              <textarea id="crud-description" class="admin-form-input" placeholder="Explain the aura and notes of the scent..." style="min-height: 80px;" required></textarea>
+            </div>
+          </div>
+
+          <div class="modal-form-actions">
+            <button type="button" class="btn btn-secondary clickable" id="perfume-modal-cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary clickable" id="perfume-modal-submit-btn">Save Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ================= CUSTOM DIALOG MODAL (Alerter/Success indicator) ================= -->
+    <div class="modal-overlay" id="dialog-modal-overlay">
+      <div class="modal-content" style="max-width: 400px; text-align: center; padding: 40px 30px;">
+        <div id="dialog-icon" style="font-size: 3.5rem; color: var(--accent-gold); margin-bottom: 20px;">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 id="dialog-title" style="font-size: 1.8rem; margin-bottom: 10px;">Success!</h3>
+        <p id="dialog-message" style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Your operation was completed.</p>
+        <button class="btn btn-primary clickable" id="dialog-ok-btn" style="width: 100%">OK</button>
+      </div>
+    </div>
+
+    <!-- Glassmorphic Footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="#home" class="logo clickable" data-target="home" style="margin-bottom: 20px;">
+            <span class="logo-main">Al-Qadsiya</span>
+            <span class="logo-sub">Khushbuu Mahal</span>
+          </a>
+          <p>We are a high-end scent boutique dedicated to blending liquid art. We create olfactory narratives using the finest natural ingredients to evoke precious moments.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Scent Families</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog" class="clickable" data-target="catalog" data-filter="Floral">Floral Garden</a></li>
+            <li><a href="#catalog" class="clickable" data-target="catalog" data-filter="Oriental">Oriental Oud</a></li>
+            <li><a href="#catalog" class="clickable" data-target="catalog" data-filter="Fresh">Fresh Mist</a></li>
+            <li><a href="#catalog" class="clickable" data-target="catalog" data-filter="Citrus">Citrus Zest</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="clickable" data-target="home">Home</a></li>
+            <li><a href="#catalog" class="clickable" data-target="catalog">Scent Catalog</a></li>
+            <li><a href="#contact" class="clickable" data-target="contact">Contact Boutique</a></li>
+            <li><a href="#admin" class="admin-trigger-link clickable" data-target="admin"><i class="fa-solid fa-lock"></i> Client Login</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Our Boutique</h4>
+          <div class="footer-contact-info">
+            <div><i class="fa-solid fa-map-marker"></i> Al-Qadsiya Khushbuu Mahal, Main Perfume Market, St. 5</div>
+            <div><i class="fa-solid fa-phone"></i> +92 300 1234567</div>
+            <div><i class="fa-solid fa-envelope"></i> info@alqadsiyakhushbuu.com</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2026 Al-Qadsiya Khushbuu Mahal. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="#" class="clickable">Privacy Policy</a>
+          <a href="#" class="clickable">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- App Main Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
