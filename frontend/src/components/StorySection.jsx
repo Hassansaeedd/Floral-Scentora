@@ -1,17 +1,24 @@
 import React from 'react';
+import { handleImageError } from '../utils/imageHelper';
 
 const StorySection = () => {
   return (
     <>
       <section className="story-section">
         <div className="story-img">
-          <img src="/assets/images/oud_subh.jpg" alt="Majestic Oud morning sun gold theme" />
+          <img
+            src="/assets/images/oud_subh.jpg"
+            alt="Majestic Oud morning sun gold theme"
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={handleImageError}
+          />
         </div>
         <div className="story-content">
           <span className="section-subtitle">Our Heritage</span>
-          <h2 className="story-title font-serif">Al-Qadsiya Khushbuu Mahal</h2>
+          <h2 className="story-title font-serif">Floral Scentora</h2>
           <p className="story-text">
-            Established with a deep devotion to classical perfumery, Al-Qadsiya Khushbuu Mahal represents the pinnacle of boutique scent artistry. Every creation is hand-blended using premium floral absolute oils, rare spices, and rich agarwood.
+            Established with a deep devotion to classical perfumery, Floral Scentora represents the pinnacle of boutique scent artistry. Every creation is hand-blended using premium floral absolute oils, rare spices, and rich agarwood.
           </p>
           <p className="story-text">
             We believe that a fragrance is more than a simple aroma; it is a canvas of memories, a whisper of dreams, and a statement of signature elegance.

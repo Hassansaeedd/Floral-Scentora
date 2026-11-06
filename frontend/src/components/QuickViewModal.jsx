@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-const FALLBACK_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none"><rect width="200" height="280" fill="#f8f4ee"/><rect x="65" y="100" width="70" height="130" rx="14" fill="url(#bg)" opacity="0.85"/><rect x="82" y="72" width="36" height="32" rx="6" fill="url(#bg)" opacity="0.75"/><rect x="78" y="56" width="44" height="20" rx="8" fill="#c6a15b" opacity="0.9"/><rect x="74" y="138" width="52" height="58" rx="6" fill="white" opacity="0.6"/><circle cx="100" cy="167" r="3" fill="#c6a15b" opacity="0.7"/><circle cx="88" cy="175" r="2" fill="#c6a15b" opacity="0.5"/><circle cx="112" cy="175" r="2" fill="#c6a15b" opacity="0.5"/><defs><linearGradient id="bg" x1="65" y1="100" x2="135" y2="230" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#f5e6e3"/><stop offset="100%" stop-color="#c6a15b"/></linearGradient></defs></svg>`)}`;
+import { getImageUrl, handleImageError } from '../utils/imageHelper';
 
 const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
   const [selectedSize, setSelectedSize] = useState('50ml');
@@ -10,15 +9,6 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
   if (!isOpen || !product) return null;
 
   const isOutOfStock = product.stock_status === 'Out of Stock' || product.quantity <= 0;
-
-  const getImageUrl = (image) => {
-    if (!image) return FALLBACK_SVG;
-    if (image.startsWith('data:')) return image;
-    if (image.startsWith('http://') || image.startsWith('https://')) {
-      return `/api/image-proxy?url=${encodeURIComponent(image)}`;
-    }
-    return `/${image}`;
-  };
 
   const handleBuyNow = () => {
     const text = `Hello Floral Scentora! I would like to buy: ${product.name} (${selectedSize}) x ${quantity} - Rs. ${(parseFloat(product.price) * quantity).toLocaleString()}`;
@@ -33,8 +23,34 @@ const QuickViewModal = ({ product, isOpen, onClose, onAddToCart }) => {
         </button>
 
         <div className="quickview-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '35px' }}>
-          <div className="qv-img-wrapper" style={{ borderRadius: '20px', overflow: 'hidden', background: 'var(--pastel-peach)', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--glass-border)' }}>
-            <img src={getImageUrl(product.image)} alt={product.name} style={{ maxHeight: '380px', objectFit: 'contain' }} />
+          <div
+            className="qv-img-wrapper"
+            style={{
+              borderRadius: '20px',
+              overflow: 'hidden',
+              background: 'linear-gradient(145deg, #FAF7F2 0%, #F1E9DE 100%)',
+              padding: '24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '1px solid var(--glass-border)',
+              minHeight: '380px',
+            }}
+          >
+            <img
+              src={getImageUrl(product.image)}
+              alt={product.name}
+              loading="eager"
+              referrerPolicy="no-referrer"
+              onError={handleImageError}
+              style={{
+                maxHeight: '360px',
+                maxWidth: '100%',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 12px 24px rgba(51, 43, 39, 0.12))',
+                transition: 'transform 0.4s ease',
+              }}
+            />
           </div>
 
           <div className="qv-details">

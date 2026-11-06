@@ -472,18 +472,19 @@ nav a.active-link::after {
 
 .perfume-card {
   background: var(--color-card-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(198, 161, 91, 0.22);
   border-radius: var(--border-radius-md);
   overflow: hidden;
   transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(51, 43, 39, 0.04);
 }
 
 .perfume-card:hover {
   transform: translateY(-8px);
   border-color: var(--glass-border-hover);
-  box-shadow: 0 15px 40px rgba(229, 193, 88, 0.2);
+  box-shadow: 0 18px 45px rgba(198, 161, 91, 0.18);
 }
 
 .card-img-wrapper {
@@ -491,24 +492,27 @@ nav a.active-link::after {
   width: 100%;
   height: 250px;
   max-height: 250px;
-  background: rgba(14, 16, 24, 0.9);
+  background: linear-gradient(160deg, #FAF7F2 0%, #F3ECE2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 22px;
   overflow: hidden;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.12);
 }
 
 .card-img-wrapper img {
-  max-height: 210px;
+  max-height: 205px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
-  transition: transform 0.5s ease;
+  filter: drop-shadow(0 8px 18px rgba(51, 43, 39, 0.08));
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1), filter 0.3s ease;
 }
 
 .perfume-card:hover .card-img-wrapper img {
-  transform: scale(1.08);
+  transform: scale(1.08) translateY(-3px);
+  filter: drop-shadow(0 14px 26px rgba(198, 161, 91, 0.22));
 }
 
 .card-overlay {
@@ -517,7 +521,7 @@ nav a.active-link::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(9, 10, 15, 0.75);
+  background: rgba(44, 38, 34, 0.38);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -536,19 +540,20 @@ nav a.active-link::after {
   height: 44px;
   border-radius: 50%;
   border: 1px solid var(--accent-gold);
-  background: var(--primary-charcoal);
-  color: var(--accent-gold);
+  background: #FFFFFF;
+  color: var(--primary-charcoal);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   transition: var(--transition-fast);
 }
 
 .card-btn:hover {
   background: var(--accent-gold);
-  color: #090A0F;
+  color: #FFFFFF;
   transform: scale(1.1);
   box-shadow: 0 0 15px var(--accent-gold-glow);
 }
@@ -567,21 +572,21 @@ nav a.active-link::after {
 }
 
 .tag-instock {
-  background: rgba(160, 210, 180, 0.15);
-  color: #7BD192;
-  border: 1px solid rgba(123, 209, 146, 0.3);
+  background: rgba(46, 125, 50, 0.12);
+  color: #2E7D32;
+  border: 1px solid rgba(46, 125, 50, 0.28);
 }
 
 .tag-lowstock {
-  background: rgba(229, 193, 88, 0.15);
-  color: var(--accent-gold);
-  border: 1px solid var(--glass-border);
+  background: rgba(198, 161, 91, 0.16);
+  color: #9C7829;
+  border: 1px solid rgba(198, 161, 91, 0.35);
 }
 
 .tag-outstock {
-  background: rgba(232, 180, 184, 0.15);
-  color: var(--secondary-rose);
-  border: 1px solid rgba(232, 180, 184, 0.3);
+  background: rgba(198, 40, 40, 0.12);
+  color: #C62828;
+  border: 1px solid rgba(198, 40, 40, 0.28);
 }
 
 .card-info {

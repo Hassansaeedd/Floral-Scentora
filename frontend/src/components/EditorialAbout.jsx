@@ -1,8 +1,7 @@
 import React from 'react';
+import { handleImageError } from '../utils/imageHelper';
 
 const EditorialAbout = () => {
-  const imageUrl = `/api/image-proxy?url=${encodeURIComponent('https://alqadsiya.com/wp-content/uploads/2025/02/01-19.jpg')}`;
-
   return (
     <section className="editorial-section">
       <div className="editorial-content">
@@ -22,9 +21,12 @@ const EditorialAbout = () => {
 
       <div className="editorial-image-wrapper">
         <img
-          src={imageUrl}
+          src="/assets/images/rose_whisper.jpg"
           alt="About Floral Scentora"
           className="editorial-img"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={handleImageError}
         />
       </div>
     </section>

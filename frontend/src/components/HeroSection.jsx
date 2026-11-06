@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { handleImageError } from '../utils/imageHelper';
 
 const HeroSection = () => {
   return (
@@ -26,9 +27,16 @@ const HeroSection = () => {
       <div className="hero-visual">
         <div className="hero-circle-bg"></div>
         <div className="hero-img-card" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--box-shadow-medium)' }}>
-          <img src="https://alqadsiya.com/wp-content/uploads/2025/02/01-18.jpg" alt="Floral Scentora Luxury Perfume" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img
+            src="/assets/images/rose_whisper.jpg"
+            alt="Floral Scentora Luxury Perfume"
+            loading="eager"
+            referrerPolicy="no-referrer"
+            onError={handleImageError}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
-        <div className="floating-badge" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', border: '1px solid var(--accent-gold)' }}>
+        <div className="floating-badge" style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', border: '1px solid var(--accent-gold)' }}>
           <span className="badge-title" style={{ color: 'var(--primary-charcoal)', fontWeight: 600 }}>100% Botanical</span>
           <span className="badge-sub" style={{ color: 'var(--accent-gold)' }}>Pure Artisanal Oils</span>
         </div>

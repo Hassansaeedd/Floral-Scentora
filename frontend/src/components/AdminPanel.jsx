@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-
-const FALLBACK_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none"><rect width="200" height="280" fill="#090a0f"/><rect x="65" y="100" width="70" height="130" rx="14" fill="url(#bg)" opacity="0.85"/><rect x="82" y="72" width="36" height="32" rx="6" fill="url(#bg)" opacity="0.75"/><rect x="78" y="56" width="44" height="20" rx="8" fill="#e5c158" opacity="0.9"/><rect x="74" y="138" width="52" height="58" rx="6" fill="white" opacity="0.6"/><circle cx="100" cy="167" r="3" fill="#e5c158" opacity="0.7"/><defs><linearGradient id="bg" x1="65" y1="100" x2="135" y2="230" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#e8b4b8"/><stop offset="100%" stop-color="#e5c158"/></linearGradient></defs></svg>`)}`;
+import { getImageUrl, handleImageError } from '../utils/imageHelper';
 
 const ITEMS_PER_PAGE = 20;
 
@@ -34,16 +33,6 @@ const AdminPanel = ({ products, onAddProduct, onUpdateProduct, onDeleteProduct }
     longevity: 'Long Lasting (8-10 Hours)',
     sillage: 'Strong'
   });
-
-  // Helper for image resolution
-  const getImageUrl = (image) => {
-    if (!image) return FALLBACK_SVG;
-    if (image.startsWith('data:')) return image;
-    if (image.startsWith('http://') || image.startsWith('https://')) {
-      return `/api/image-proxy?url=${encodeURIComponent(image)}`;
-    }
-    return `/${image}`;
-  };
 
   // Verify session authentication on load
   useEffect(() => {
@@ -334,12 +323,9 @@ const AdminPanel = ({ products, onAddProduct, onUpdateProduct, onDeleteProduct }
                             <img
                               src={getImageUrl(product.image)}
                               alt={product.name}
-                              onError={(e) => {
-                                if (e.target.src !== FALLBACK_SVG) {
-                                  e.target.onerror = null;
-                                  e.target.src = FALLBACK_SVG;
-                                }
-                              }}
+                              loading="lazy"
+                              referrerPolicy="no-referrer"
+                              onError={handleImageError}
                             />
                           </div>
                           <div>
